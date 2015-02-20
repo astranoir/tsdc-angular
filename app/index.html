@@ -10,9 +10,18 @@
     <p>Welcome to Triad Dev Conf - AngularJS!</p>
 
     <div ng-controller="AppCtrl">
-        <div>Hello, {{name || 'World'}}!</div>
-        <div><input type="text" ng-model="name" /></div>
-        <div><button ng-click="name=''">Clear</button></div>
+        <div>
+            <input type="text" ng-model="newTodo"/>
+            <button ng-click="addTodo(newTodo)">Add Todo</button>
+        </div>
+
+        <br/>
+
+        <div>
+            <ul>
+                <li ng-repeat="t in todos">{{t.text}}</li>
+            </ul>
+        </div>
     </div>
 
     <script src="js/vendor/angularjs/angular.js"></script>
