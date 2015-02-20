@@ -1,4 +1,15 @@
-var app = angular.module('tsdc', []);
+var app = angular.module('tsdc', ['ngRoute']);
+
+app.config(function($routeProvider){
+    $routeProvider
+        .when('/', {
+            controller: 'AppCtrl',
+            templateUrl: 'todo.html'
+        })
+        .otherwise({
+            redirectTo: '/'
+        })
+});
 
 app.controller('AppCtrl', function($scope) {
     $scope.todos = [{

@@ -18,28 +18,33 @@
 <body>
     <p>Welcome to Triad Dev Conf - AngularJS!</p>
 
-    <div ng-controller="AppCtrl">
-        <div>
-            <input type="text" ng-model="newTodo"/>
-            <button ng-click="addTodo(newTodo)">Add Todo</button>
-        </div>
+    <ng-view></ng-view>
 
-        <br/>
-
+    <script type="text/ng-template" id="todo.html">
         <div>
-            <ul>
-                <li ng-repeat="t in todos">
-                    <todo-item data="t"></todo-item>
-                </li>
-            </ul>
-        </div>
+            <div>
+                <input type="text" ng-model="newTodo"/>
+                <button ng-click="addTodo(newTodo)">Add Todo</button>
+            </div>
 
-        <div>
-            <button ng-click="clearDoneTodos()">Add Todo</button>
+            <br/>
+
+            <div>
+                <ul>
+                    <li ng-repeat="t in todos">
+                        <todo-item data="t"></todo-item>
+                    </li>
+                </ul>
+            </div>
+
+            <div>
+                <button ng-click="clearDoneTodos()">Add Todo</button>
+            </div>
         </div>
-    </div>
+    </script>
 
     <script src="js/vendor/angularjs/angular.js"></script>
+    <script src="js/vendor/angularjs/angular-route.js"></script>
     <script src="js/app.js"></script>
 </body>
 
