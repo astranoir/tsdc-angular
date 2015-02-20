@@ -6,6 +6,12 @@ app.controller('AppCtrl', function($scope) {
         done: false
     }];
 
+    $scope.clearDoneTodos = function () {
+        $scope.todos = $scope.todos.filter(function (todo) {
+            return !todo.done;
+        })
+    };
+
     $scope.addTodo = function(newTodo) {
         if(!newTodo) {
             return;
