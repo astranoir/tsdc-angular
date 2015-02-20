@@ -14,11 +14,14 @@ app.config(function($routeProvider){
         })
 });
 
-app.controller('AppCtrl', function($scope, $routeParams) {
-    $scope.todos = [{
-        text:'Finish Todo App',
-        done: false
-    }];
+app.factory('todoStore', function() {
+    return {
+        todos: []
+    }
+});
+
+app.controller('AppCtrl', function($scope, $routeParams, todoStore) {
+    $scope.todos = todoStore.todos;
 
     $scope.$on('$routeChangeSuccess', function() {
         var status = $routeParams.status;
