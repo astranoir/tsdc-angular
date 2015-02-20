@@ -19,3 +19,13 @@ app.controller('AppCtrl', function($scope) {
         $scope.newTodo = '';
     }
 });
+
+app.directive('todoItem', function() {
+    return {
+        restict: 'E',
+        scope: {
+            data: '='
+        },
+        template: '<div>\n    <label>\n        <input type="checkbox" ng-model="data.done"/>\n        {{data.text}}\n    </label>\n</div>'
+    }
+});

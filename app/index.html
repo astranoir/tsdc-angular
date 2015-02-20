@@ -19,7 +19,9 @@
 
         <div>
             <ul>
-                <li ng-repeat="t in todos">{{t.text}}</li>
+                <li ng-repeat="t in todos">
+                    <todo-item data="t"></todo-item>
+                </li>
             </ul>
         </div>
     </div>
