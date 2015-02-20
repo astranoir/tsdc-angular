@@ -31,7 +31,7 @@
 
             <div>
                 <ul>
-                    <li ng-repeat="t in todos">
+                    <li ng-repeat="t in todos | filter:statusFilter">
                         <todo-item data="t"></todo-item>
                     </li>
                 </ul>
@@ -39,6 +39,12 @@
 
             <div>
                 <button ng-click="clearDoneTodos()">Add Todo</button>
+                |
+                <a href="#/">All</a>
+                |
+                <a href="#/active">Active</a>
+                |
+                <a href="#/done">Done</a>
             </div>
         </div>
     </script>
