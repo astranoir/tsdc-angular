@@ -26,6 +26,6 @@ app.directive('todoItem', function() {
         scope: {
             data: '='
         },
-        template: '<div>\n    <label>\n        <input type="checkbox" ng-model="data.done"/>\n        {{data.text}}\n    </label>\n</div>'
+        template: '<div>\n    <label class="todo-{{ (!data.done) ? \'active\' : \'done\'}}">\n        <input type="checkbox" ng-model="data.done"/>\n        {{data.text}}\n    </label>\n</div>'
     }
 });
