@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en" ng-app>
+<html lang="en" ng-app="tsdc">
 
 <head>
     <meta charset="utf-8">
@@ -9,13 +9,14 @@
 <body>
     <p>Welcome to Triad Dev Conf - AngularJS!</p>
 
-    <div>
+    <div ng-controller="AppCtrl">
         <div>Hello, {{name || 'World'}}!</div>
         <div><input type="text" ng-model="name" /></div>
         <div><button ng-click="name=''">Clear</button></div>
     </div>
 
     <script src="js/vendor/angularjs/angular.js"></script>
+    <script src="js/app.js"></script>
 </body>
 
 </html>
