@@ -1,9 +1,9 @@
 <!doctype html>
-<html lang="en" ng-app="tsdc">
-    <!-- most AngularJS directives are prefixed by ng-
-    The ng-app directive defines an AngularJS application
-    In this case it's pointing to the tsdc module in app.js
-    So also have script src js/app.js -->
+<html lang="en" data-ng-app="tsdc">
+<!-- most AngularJS directives are prefixed by ng-
+The ng-app directive defines an AngularJS application
+In this case it's pointing to the tsdc module in app.js
+So also have script src js/app.js -->
 
 <head>
     <meta charset="utf-8">
@@ -11,65 +11,65 @@
     <style type="text/css">
         .todo-active
         {
-            font-weight: bold;
+        font-weight: bold;
         }
         .todo-done
         {
-            text-decoration: line-through;
+        text-decoration: line-through;
         }
     </style>
 </head>
 
 <body>
-    <p>Welcome to Triad Dev Conf - AngularJS!</p>
-    <!--<div ng-controller="AppCtrl"> -->
-    <p>Hello, {{name || 'To Do list user'}}!</p>
-    <div>Enter your name below.</div>
-    <div><input type="text" ng-model="name" />
-        <!-- the ng-model directive binds in this case an input to a property
-        on the scope using NgModelController
-        (created and exposed by this directive )-->
-        <button ng-click="name=''">Clear</button>
-    </div>
-        <!-- the ng-click directive allows you to specify custom behavior
-        when an element is clicked-->
-    <br/>
-    <br/>
+<p>Welcome to Triad Dev Conf - AngularJS!</p>
+<!--<div ng-controller="AppCtrl"> -->
+<p>Hello, {{name || 'To Do list user'}}!</p>
+<div>Enter your name below.</div>
+<div><input type="text" data-ng-model="name" />
+    <!-- the ng-model directive binds in this case an input to a property
+    on the scope using NgModelController
+    (created and exposed by this directive )-->
+    <button data-ng-click="name=''">Clear</button>
+</div>
+<!-- the ng-click directive allows you to specify custom behavior
+when an element is clicked-->
+<br/>
+<br/>
 
-    <ng-view></ng-view>
-    <!--ng-view is a directive in module ngRoute
-    includes the rendered template of the current rout into the main layout file
-    every time the current route changes, the included view changes with it
-    based on the configuration of the $route service -->
+<data-ng-view></data-ng-view>
+<!--ng-view is a directive in module ngRoute
+includes the rendered template of the current route into the main layout file
+every time the current route changes, the included view changes with it
+based on the configuration of the $route service -->
 
-    <script type="text/ng-template" id="todo.html">
+<script type="text/ng-template" id="todo.html">
+    <div>
         <div>
-            <div>
-                <input type="text" ng-model="newToDo" ng-enter="addToDo(newToDo)"/>
-                <button ng-click="addToDo(newToDo)">Add To Do Task</button>
-            </div>
-
-            <br/>
-
-            <div>
-                <ul>
-                    <li ng-repeat="t in todos | filter:statusFilter">
-                        <todo-item data="t"></todo-item>
-                    </li>
-                </ul>
-            </div>
-
-            <div>
-                <button ng-click="clearDoneToDos()">Clear Completed Tasks</button>
-                |
-                <a href="#/">All</a>
-                |
-                <a href="#/active">Active</a>
-                |
-                <a href="#done">Done</a>
-            </div>
+            <input type="text" data-ng-model="newToDo" data-ng-enter="addToDo(newToDo)"/>
+            <button data-ng-click="addToDo(newToDo)">Add To Do Task</button>
         </div>
-    </script>
+
+        <br/>
+
+        <div>
+            <ul>
+                <li data-ng-repeat="t in todos | filter:statusFilter">
+                    <todo-item data="t"></todo-item>
+                </li>
+            </ul>
+        </div>
+
+        <div>
+            <button data-ng-click="clearDoneToDos()">Clear Completed Tasks</button>
+            |
+            <a href="#/">All</a>
+            |
+            <a href="#/active">Active</a>
+            |
+            <a href="#done">Done</a>
+        </div>
+    </div>
+</script>
 
 <script src="js/vendor/angularjs/angular.js"></script>
 <script src="js/vendor/angularjs/angular-route.js"></script>
